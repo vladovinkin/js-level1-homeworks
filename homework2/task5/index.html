@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		'use strict';
+		
+		/**
+		* Функция вычисляет сумму параметров
+		* @param {number} arg1
+		* @param {number} arg2
+		* @returns {number}
+		*/
+		function add (arg1, arg2) {
+			return arg1 + arg2;
+		}
+		
+		/**
+		* Функция вычисляет разность параметров
+		* @param {number} arg1
+		* @param {number} arg2
+		* @returns {number}
+		*/
+		function sub (arg1, arg2) {
+			return arg1 - arg2;
+		}
+		
+		/**
+		* Функция вычисляет произведение параметров
+		* @param {number} arg1
+		* @param {number} arg2
+		* @returns {number}
+		*/
+		function mult (arg1, arg2) {
+			return arg1 * arg2;
+		}
+		
+		/**
+		* Функция вычисляет частное параметров
+		* @param {number} arg1
+		* @param {number} arg2
+		* @returns {number}
+		*/
+		function div (arg1, arg2) {
+			return arg1 / arg2;
+		}
+		
+		/**
+		* Функция производит заданную математическую операцию над двумя аргументами
+		* @param {number} arg1
+		* @param {number} arg2
+		* @param {string} operation - "+", "-", "*", "/"
+		* @returns {number}
+		*/
+		function mathOperation (arg1, arg2, operation) {
+			switch(operation) {
+				case "+":
+					return add(arg1, arg2);
+				case "-":
+					return sub(arg1, arg2);
+				case "*":
+					return mult(arg1, arg2);
+				case "/":
+					return div(arg1, arg2);
+				default:
+					return "Неизвестная математическая операция!";
+			}
+		}
+		
+	</script>
+</body>
+</html>
