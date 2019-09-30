@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		'use strict';
+		
+		// задача решена чисто математическим методом :)
+		let deposit = prompt("Какую сумму желаете положить на счёт в банке?");
+		let correctString = " рублей ";
+		
+		if (!isNaN(parseInt(deposit))) {
+			let test = deposit - parseInt(deposit/100)*100; //выделяем 2 последних числа (например из 12345 выделим 45, однозначное и двузначное число никак не изменятся)
+			if (test > 20) { 
+				// если в диапазоне 20..99, откинем десятки
+				test = test - parseInt(test/10)*10; 
+			}
+			// в диапазоне 10..19 - всё "рублей"
+			if (test < 10) { // разберём окончания
+				switch(test) { 
+					// не "рублей" - на самом деле немного, это всё то, что оканчивается на 1..4, 
+					//	и не в диапазоне 10..19 (если же будет дробная часть - то там вообще всё "рублей" - ещё проще)
+					case 1:
+						correctString = " рубль ";
+						break;
+					case 2:
+					case 3:
+					case 4:
+						correctString = " рубля ";
+						break;
+				}
+			}
+			alert("Ваша сумма в " + deposit + correctString + "успешно зачислена.");
+		} else {
+			alert("В следующий раз введите пожалуйста числовое значение");
+		}
+	</script>
+</body>
+</html>

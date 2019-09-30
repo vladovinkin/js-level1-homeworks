@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		'use strict';
+		
+		let a = parseInt(prompt("Введите первое целое число"));
+		let b = parseInt(prompt("Введите второе целое число"));
+		
+		if (!isNaN(a) && !isNaN(b)) {
+			let positiveBoth = (a >= 0) && (b >= 0);
+			let negativeBoth = (a < 0) && (b < 0);
+			
+			let result = 0;
+		
+			if (positiveBoth) {
+				result = (a-b >= 0) ? a-b : b-a;
+			} else if (negativeBoth) {
+				result = a * b;
+			} else { // если они ни оба не положительные, ни оба не отрицательные - явно с разными знаками :)
+				result = a + b;
+			}
+		
+			alert("Результат: " + result);
+		} else {
+			alert ("Вы должны были ввести числа!");
+		}
+		
+	</script>
+</body>
+</html>
