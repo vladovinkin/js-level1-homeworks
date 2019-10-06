@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		'use strict';
+		
+		let isEvenOddString = "";
+		
+		for (let num=0; num <= 10; num++) {
+			if (num == 0) {
+				isEvenOddString = "это ноль";
+			} else if (num % 2 == 0) {
+				isEvenOddString = "чётное число";
+			} else {
+				isEvenOddString = "нечётное число";
+			}
+			console.log(num + " - " + isEvenOddString);
+		}
+	</script>
+</body>
+</html>
