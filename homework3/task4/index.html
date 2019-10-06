@@ -24,7 +24,7 @@
 		];
 		
 		products.forEach(function(element) {
-			console.log("У продукта №" + element.id + " сегодня скидка 15%! Новая цена: " + (element.price * .85) + " (было " + element.price + ").");
+			console.log("У продукта №" + element.id + " сегодня скидка 15%! Новая цена: " + (element.price *= .85) + " (было " + (element.price / .85) + ").");
 		});
 	</script>
 </body>
