@@ -4,6 +4,8 @@ let renderer = {
 	
 	render() {	
 		
+		config.setFieldChar();
+		
 		for (let row = 0; row < config.rowsCount; row++) {
 			for (let col = 0; col < config.colsCount; col++) {
 				
