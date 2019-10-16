@@ -1,0 +1,37 @@
+body {
+	background-color: #ccc;
+	display: flex;
+	justify-content: center;
+	font-weight: bold;
+}
+
+table {
+	border-collapse: collapse;
+	text-align: center;
+	vertical-align: middle;
+	margin: 50px;
+}
+
+td {
+	width: 50px;
+	height: 50px;
+	border: 1px solid black;
+}
+
+.bg-white {
+	background-color: white;
+}
+
+.bg-black {
+	background-color: black;
+}
+
+.vCoord {
+	width: 25px;
+	border: none;
+}
+
+.hCoord {
+	height: 25px;
+	border: none;
+}	
