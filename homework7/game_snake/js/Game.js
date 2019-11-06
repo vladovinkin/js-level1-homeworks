@@ -4,6 +4,7 @@ class Game {
 	constructor() {
 		this.tickIndentifier = null;
 		this.messageEl = document.getElementById('message');
+		this.startBtnEl = document.getElementById('startBtn');
 	}
 	
 	/**
@@ -65,6 +66,7 @@ class Game {
 	doTick() {
 		this.snake.performStep();
 		if (this.isGameLost()) {
+			this.board.boardEl.classList.add('shake');
 			clearInterval(this.tickIndentifier);
 			this.setMessage('Вы проиграли');
 			return;
