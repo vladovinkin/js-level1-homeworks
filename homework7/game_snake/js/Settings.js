@@ -3,10 +3,10 @@
 class Settings {
 	/**
 	/* @param {Object} params - Параметры игры.
-	/* @param {number} params.rowsCount - количество строк игрового поля
-	/* @param {number} params.colsCount - количество колонок игрового поля
-	/* @param {number} params.speed - скорость перемещения змейки
-	/* @param {number} params.winLength - длина змейки для окончания уровня
+	/* @param {number} params.rowsCount - количество строк игрового поля [10; 30]
+	/* @param {number} params.colsCount - количество колонок игрового поля [10; 30]
+	/* @param {number} params.speed - скорость перемещения змейки [1; 10]
+	/* @param {number} params.winLength - длина змейки для окончания уровня [5; 50]
 	/* @throw {Error} если переданы не верные настройки, выбрасывается
 	/* соответствующая ошибка.
 	*/

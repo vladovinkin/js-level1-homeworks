@@ -2,7 +2,15 @@
 
 class Snake {
 	constructor() {
-		this.possibleDirections = ['down', 'up', 'left', 'right'];
+		// возможные направления движения (расположены по часовой стрелке)
+		this.possibleDirections = ['down', 'left', 'up', 'right'];
+		// возможные изменения направлений движения змейки
+		// влево: против часовой стрелки
+		// вправо: по часовой стрелке
+		this.possibleDirectionChangeKeys = ['left', 'right'];
+		// счёттчик шагов по текущему направлению движения (для исключения движения 
+		// в противоположном направлении)
+		this.directionStepsCount = 0;
 		
 		/**
 		* body[body.length-1] - последние координаты хвоста (не отображаются
@@ -23,40 +31,26 @@ class Snake {
 	
 	/**
 	* Меняем направление движения.
-	* @param {string} direction направление может быть down, up, left, right
+	* @param {string} turnDirection изменение направления может быть left или right
 	* @throws {Error} при передаче не корректного направления выбрасывается ошибка.
 	*/
-	changeDirection(newDirection) {
-		if (!this.possibleDirections.includes(newDirection)) {
+	changeDirection(turnDirection) {
+		if (!this.possibleDirectionChangeKeys.includes(turnDirection)) {
 			throw new Error('Передано неверное направление. Вы передали: ' + newDirection);
 		}
-		if (this.isPassedOppositeDirection(newDirection)) {
-			return;
+
+		let dirs = this.possibleDirections;
+		switch(turnDirection) {
+			case 'left':
+				dirs.unshift(dirs.pop());
+				break;
+			case 'right':
+				dirs.push(dirs.shift());
+				break;		
 		}
-		this.direction = newDirection;
-	}
-	
-	/**
-	* Метод проверяет, является ли переданное направление противоположным
-	* тому, куда сейчас движется змейка.
-	* @param {string} newDirection новое направление, может быть up, down, right, left.
-	* @returns {boolean} true если новое направление противоположно текущему,
-	* иначе false
-	*/
-	isPassedOppositeDirection(newDirection) {
-		if (this.direction == 'down' && newDirection == 'up') {
-			return true;
-		}
-		if (this.direction == 'up' && newDirection == 'down') {
-			return true;
-		}
-		if (this.direction == 'left' && newDirection == 'right') {
-			return true;
-		}
-		if (this.direction == 'right' && newDirection == 'left') {
-			return true;
-		}
-		return false;
+
+		this.direction = dirs[0];
+		this.directionStepsCount = 0;
 	}
 	
 	/**
@@ -85,6 +79,7 @@ class Snake {
 		}
 		this.body.unshift(newHeadCoords);
 		this.body.pop();
+		this.directionStepsCount++;
 	}
 	
 	/**

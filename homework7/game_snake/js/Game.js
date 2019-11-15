@@ -41,7 +41,7 @@ class Game {
 	start() {
 		if (this.status.isPaused()) {
 			this.status.setPlaying();
-			this.tickIndentifier = setInterval(this.doTick.bind(this), 1100 - (100 * this.settings.speed));
+			this.tickIndentifier = setInterval(this.doTick.bind(this),550 - (50 * this.settings.speed));
 		}
 	} 
 	
@@ -111,19 +111,15 @@ class Game {
 	* @param {KeyboardEvent} event
 	*/
 	pressKeyHandler(event) {
-		switch (event.key) {
-			case "ArrowUp":
-				this.snake.changeDirection('up');
-				break;
-			case "ArrowDown":
-				this.snake.changeDirection('down');
-				break;
-			case "ArrowLeft":
-				this.snake.changeDirection('left');
-				break;
-			case "ArrowRight":
-				this.snake.changeDirection('right');
-				break;
+		if (this.snake.directionStepsCount > 0 ) {
+			switch (event.key) {
+				case "ArrowLeft":
+					this.snake.changeDirection('left');
+					break;
+				case "ArrowRight":
+					this.snake.changeDirection('right');
+					break;
+			}
 		}
 	}
 	
