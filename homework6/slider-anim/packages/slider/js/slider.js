@@ -1,8 +1,9 @@
 'use strict';
 
-document.head.insertAdjacentHTML("afterbegin", '<link rel="stylesheet" href="css/font-awesome.min.css"">');
+document.head.insertAdjacentHTML("afterbegin", '<link rel="stylesheet" href="css/font-awesome.min.css">');
 
 let slider = document.querySelector('.slider');
+let comment = document.querySelector('.comment');
 
 // признак работы анимации
 let sliderBusy = false;
@@ -70,13 +71,16 @@ window.addEventListener('load',  function () {
 
     // Показываем навигацию
     displayNav();
+
+    // Показываем комментарий
+    displayComment();
 });
 
 /**
 * Функция скрывает иконку загрузки
 * "param {HTMLElement} loadIcon
 */
-function hideLoadIcon (loadIcon) {
+function hideLoadIcon(loadIcon) {
     loadIcon.classList.add('zoomOut');
     setTimeout(() => {
         loadIcon.style.display = "none";    
@@ -84,11 +88,16 @@ function hideLoadIcon (loadIcon) {
 }
 
 /** Показываем навигацию */
-function displayNav () {
+function displayNav() {
     leftArrow.classList.add('bounceInLeft');
     leftArrow.classList.remove('arrows-none');
     rightArrow.classList.add('bounceInRight');
     rightArrow.classList.remove('arrows-none');
+}
+
+function displayComment() {
+    comment.classList.add('fadeInUp');
+    comment.classList.remove('hidden-slide');
 }
 
 /**

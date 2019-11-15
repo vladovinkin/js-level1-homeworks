@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Магазин "Семена"</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css"">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<button class="btnBasket" title="Сумма: 0 руб.">Корзина</button>
+		</div>
+		<div class="product-list">
+			<div class="product">
+				<div class="productName">Сибирская тройка</div>
+				<img src="img/sibirskaya-troyka.jpg" width="223" height="416" alt="Сибирская тройка">
+				<button class="btnDesc">Подробнее</button>
+				<p class="costText">Цена 1шт: <span class="costValue">28 <i class="fa fa-rub"></i></span></p>
+				<button class="buyButton" data-id="1" data-price="28" data-name="Сибирская тройка" title="Нет в корзине">В корзину</button>
+			</div>
+			<div class="product">
+				<div class="productName">Видимо-невидимо</div>
+				<img src="img/vidimo-nevidimo.jpg" width="223" height="416" alt="Видимо-невидимо">
+				<button class="btnDesc">Подробнее</button>
+				<p class="costText">Цена 1шт: <span class="costValue">32 <i class="fa fa-rub"></i></span></p>
+				<button class="buyButton" data-id="2" data-price="32" data-name="Видимо-невидимо" title="Нет в корзине">В корзину</button>
+			</div>
+			<div class="product">
+				<div class="productName">Японский краб</div>
+				<img src="img/yaponskiy-krab.jpg" width="223" height="416" alt="Японский краб">
+				<button class="btnDesc">Подробнее</button>
+				<p class="costText">Цена 1шт: <span class="costValue">30 <i class="fa fa-rub"></i></span></p>
+				<button class="buyButton" data-id="3" data-price="30" data-name="Японский краб" title="Нет в корзине">В корзину</button>
+			</div>
+		</div>
+	</div>
+	<div class="basket hidden">
+		<h3>Корзина</h3>
+		<table width="100%" id="basketTable">
+			<thead>
+				<tr>
+					<th>№</th>
+					<th>Название</th>
+					<th>Цена</th>
+					<th colspan="3">Кол-во</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+			<tfoot>
+				<tr>
+					<th class="total-sum-text" colspan="2" scope="row">Итого:</th>
+					<td class="total-sum-value">
+						<span class="total">0</span>
+						<i class="fa fa-rub"></i>
+					</td>
+					<td colspan="4"></td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<script src="app.js"></script>
+</body>
+</html>

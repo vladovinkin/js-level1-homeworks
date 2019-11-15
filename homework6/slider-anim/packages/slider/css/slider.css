@@ -192,7 +192,7 @@
   .bounceInLeft {
     -webkit-animation-name: bounceInLeft;
     animation-name: bounceInLeft;
-    animation-duration: .5s;
+    animation-duration: .8s;
   }
   
   @-webkit-keyframes bounceInRight {
@@ -274,7 +274,7 @@
   .bounceInRight {
     -webkit-animation-name: bounceInRight;
     animation-name: bounceInRight;
-    animation-duration: .5s;
+    animation-duration: .8s;
   }  
 
   @-webkit-keyframes zoomOut {
@@ -313,6 +313,40 @@
     -webkit-animation-name: zoomOut;
     animation-name: zoomOut;
     animation-duration: .5s;
+  }
+
+  @-webkit-keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    animation-duration: 1.5s;
   }
 
 .slider {
