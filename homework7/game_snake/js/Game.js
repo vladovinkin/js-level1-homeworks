@@ -71,8 +71,10 @@ class Game {
 			this.setMessage('Вы проиграли');
 			return;
 		}
+		this.board.renderSnake(); // для метода board.isHeadOnFood()
 		if (this.board.isHeadOnFood()) {
 			this.snake.increaseBody();
+			this.board.renderSnake();
 			this.food.setNewFood();
 			this.setMessage(`Длина змейки: ${this.snake.body.length-1}`);
 		}
