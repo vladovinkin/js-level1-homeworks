@@ -7,6 +7,7 @@ class Settings {
 	/* @param {number} params.colsCount - количество колонок игрового поля [10; 30]
 	/* @param {number} params.speed - скорость перемещения змейки [1; 10]
 	/* @param {number} params.winLength - длина змейки для окончания уровня [5; 50]
+	/* @param {boolean} params.wallOn - признак наличия стены [true, false]
 	/* @throw {Error} если переданы не верные настройки, выбрасывается
 	/* соответствующая ошибка.
 	*/
