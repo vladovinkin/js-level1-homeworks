@@ -12,7 +12,7 @@ class Settings {
 	/* соответствующая ошибка.
 	*/
 	init(params) {
-		let defaultParams = {rowsCount: 21, colsCount: 21, speed: 2, winLength: 50};
+		let defaultParams = {rowsCount: 21, colsCount: 21, speed: 2, winLength: 50, wallOn: true};
 		Object.assign(defaultParams, params);
 		
 		if (defaultParams.rowsCount < 10 || defaultParams.rowsCount > 30) {
@@ -34,5 +34,7 @@ class Settings {
 			throw new Error('Неверные настройки, значение winLength должно быть в диапазоне [5, 50].');
 		}
 		this.winLength = defaultParams.winLength;
+		
+		this.wallOn = defaultParams.wallOn;
 	}
 }
