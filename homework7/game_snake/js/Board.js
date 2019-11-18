@@ -30,6 +30,12 @@ class Board {
 				tr.appendChild(td);
 			}
 		}
+		if (this.settings.wallOn) {
+			this.boardEl.style.border = '2px solid green';
+		}
+		else {
+			this.boardEl.style.border = '2px dashed #888';
+		}
 	}
 	
 	/**
@@ -110,5 +116,24 @@ class Board {
 	*/
 	isHeadOnFood() {
 		return this.boardEl.querySelector('.food').classList.contains('snakeBody');
+	}
+
+	/**
+	 * 
+	 * @param {Object} newHeadPosition 
+	 */
+	calcCoordsThroughWalls(newHeadPosition) {
+		if (newHeadPosition.x == 0) {
+			newHeadPosition.x = this.settings.colsCount;
+		}
+		if (newHeadPosition.x == this.settings.colsCount+1) {
+			newHeadPosition.x = 1;
+		}
+		if (newHeadPosition.y == 0) {
+			newHeadPosition.y = this.settings.rowsCount; 
+		}
+		if (newHeadPosition.y == this.settings.rowsCount+1) {
+			newHeadPosition.y = 1;
+		}
 	}
 }
