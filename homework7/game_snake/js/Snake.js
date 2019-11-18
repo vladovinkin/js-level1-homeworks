@@ -105,4 +105,20 @@ class Snake {
 		};
 		this.body.push(newBodyLastCell);
 	}
+
+	/**
+	 * Метод проверяет, ест ли змейка сама себя.
+	 * @returns {boolean} Если голова "наступила" на тело - true, иначе - false
+	 */
+	isSnakeEatSelf() {
+		let isEat = false;
+		if (this.body.length > 5) {
+			this.body.forEach(function(item, index, array) {
+				if ((index > 3) && (index < array.length) && (item.x == array[0].x) && (item.y == array[0].y)) {
+					isEat = true;
+				}
+			});
+		}
+		return isEat;
+	}
 }
