@@ -5,6 +5,7 @@ class Game {
 		this.tickIndentifier = null;
 		this.messageEl = document.getElementById('message');
 		this.startBtnEl = document.getElementById('startBtn');
+		this.gameOverReason = 'wall';
 	}
 	
 	/**
@@ -68,8 +69,11 @@ class Game {
 		if (this.isGameLost()) {
 			this.board.boardEl.classList.add('shake');
 			clearInterval(this.tickIndentifier);
-			this.setMessage('Вы проиграли');
+			this.setMessage(`Вы проиграли: ${this.getGameOverReasonInString(this.gameOverReason)}`);
 			return;
+		}
+		if (!this.settings.wallOn) {
+			this.board.calcCoordsThroughWalls(this.snake.body[0]);
 		}
 		this.board.renderSnake(); // для метода board.isHeadOnFood()
 		if (this.board.isHeadOnFood()) {
@@ -100,11 +104,18 @@ class Game {
 	
 	/**
 	* Метод проверяет, проиграна ли игра.
-	* @returns {boolean} если мы шагнули в стену, тогда true,
+	* @returns {boolean} если мы шагнули в стену (при наличии стены), или съели себя - тогда true,
 	* иначе - false.
 	*/
 	isGameLost() {
-		return this.board.isNextStepToWall(this.snake.body[0]);
+		if (this.snake.isSnakeEatSelf()) {
+			this.gameOverReason = 'eatself';
+			return true;
+		}
+		if (this.settings.wallOn) {
+			return this.board.isNextStepToWall(this.snake.body[0]);
+		}
+		return false;
 	}
 	
 	/**
@@ -131,5 +142,20 @@ class Game {
 	*/
 	setMessage(text) {
 		this.messageEl.innerText = text;
+	}
+
+	/**
+	 * Выдаёт подробную причину окончания игры.
+	 * @param {string} reason 
+	 */
+	getGameOverReasonInString(reason) {
+		switch(reason) {
+			case 'wall':
+				return 'врезались в стену.';
+			case 'eatself':
+				return 'укусили за бочок.';
+			default:
+				return 'причина неизвестна. Обратитесь к разработчику.';
+		}
 	}
 }
