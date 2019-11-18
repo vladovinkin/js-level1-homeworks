@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
 	const board = new Board();
 	const game = new Game();
 	
-	settings.init({speed: 5, winLength: 15});
+	settings.init({speed: 5, winLength: 15, wallOn: false});
 	board.init(settings, snake);
 	food.init(settings, snake, board);
 	game.init(settings, status, board, snake, menu, food);
