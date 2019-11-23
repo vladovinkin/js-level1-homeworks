@@ -81,14 +81,6 @@ class Snake {
 		this.body.pop();
 		this.directionStepsCount++;
 	}
-
-	/**
-	 * Метод возвращает змейку на шаг назад.
-	 */
-	performStepBack() {
-		this.body.shift();
-		this.increaseBody();
-	}
 	
 	/**
 	* Метод дублирует в массиве объектов, представляющих тело змейки,
