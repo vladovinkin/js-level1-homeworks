@@ -92,7 +92,7 @@ button:active {
 td {
 	width: 20px;
 	height: 20px;
-	border: 1px solid #888;
+	border: 1px dotted #888;
 }
 
 .food {
