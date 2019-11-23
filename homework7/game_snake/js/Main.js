@@ -17,7 +17,7 @@ window.addEventListener('load', () => {
 	board.renderBoard();
 	board.renderSnake();
 	food.setNewFood();
-	game.setMessage(`Длина змейки: ${snake.body.length-1}`);
+	game.setScore(`Длина змейки: ${snake.body.length-1} / ${settings.winLength}`);
 	
 	game.run();
 });
