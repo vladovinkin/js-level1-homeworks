@@ -3,7 +3,8 @@
 class Game {
 	constructor() {
 		this.tickIndentifier = null;
-		this.messageEl = document.getElementById('message');
+		this.scoreEl = document.getElementById('score');
+		this.outcomeEl = document.getElementById('outcome');
 		this.startBtnEl = document.getElementById('startBtn');
 		this.gameOverReason = 'wall';
 	}
@@ -69,10 +70,12 @@ class Game {
 		if (this.isGameLost()) {
 			this.board.boardEl.classList.add('shake');
 			clearInterval(this.tickIndentifier);
-			this.setMessage(`Вы проиграли: ${this.getGameOverReasonInString(this.gameOverReason)}`);
+			this.outcomeEl.style.color = 'red';
+			this.setOutcome(`Вы проиграли: ${this.getGameOverReasonInString(this.gameOverReason)}`);
 			return;
 		}
 		if (!this.settings.wallOn) {
+			// если стенок нет, пересчёт координат - переброс головы на противоположную сторону
 			this.board.calcCoordsThroughWalls(this.snake.body[0]);
 		}
 		this.board.renderSnake(); // для метода board.isHeadOnFood()
@@ -80,12 +83,13 @@ class Game {
 			this.snake.increaseBody();
 			this.board.renderSnake();
 			this.food.setNewFood();
-			this.setMessage(`Длина змейки: ${this.snake.body.length-1}`);
+			this.setScore(`Длина змейки: ${this.snake.body.length-1} / ${this.settings.winLength}`);
 		}
 		if (this.isGameWon()) {
 			this.board.renderSnake();
 			clearInterval(this.tickIndentifier);
-			this.setMessage('Вы выиграли!');
+			this.outcomeEl.style.color = 'green';
+			this.setOutcome('Вы выиграли!');
 			return;
 		}
 		this.board.clearBoard();
@@ -119,7 +123,7 @@ class Game {
 	}
 	
 	/**
-	* В зависимости от нажатой кнопки (вверх, вниз, влево, вправо)
+	* В зависимости от нажатой кнопки (влево, вправо)
 	* будет вызываться соответствующий метод.
 	* @param {KeyboardEvent} event
 	*/
@@ -137,11 +141,19 @@ class Game {
 	}
 	
 	/**
-	* Метод выводит сообщение на странице.
+	* Метод выводит текущий счёт на странице.
 	* @param {string} text
 	*/
-	setMessage(text) {
-		this.messageEl.innerText = text;
+	setScore(text) {
+		this.scoreEl.innerText = text;
+	}
+	
+	/**
+	* Метод выводит итог игры на странице.
+	* @param {string} text
+	*/
+	setOutcome(text) {
+		this.outcomeEl.innerText = text;
 	}
 
 	/**
