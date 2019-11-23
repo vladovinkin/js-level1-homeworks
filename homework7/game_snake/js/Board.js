@@ -31,7 +31,7 @@ class Board {
 			}
 		}
 		if (this.settings.wallOn) {
-			this.boardEl.style.border = '2px solid green';
+			this.boardEl.style.border = '2px solid red';
 		}
 		else {
 			this.boardEl.style.border = '2px dashed #888';
