@@ -34,7 +34,7 @@ class Board {
 			this.boardEl.style.border = '2px solid red';
 		}
 		else {
-			this.boardEl.style.border = '2px dashed #888';
+			this.boardEl.style.border = '1px dashed #888';
 		}
 	}
 	
